@@ -12,27 +12,7 @@ import generatePDF from "react-to-pdf";
 function App() {
     const reportTemplateRef = useRef(null);
     const items = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
 
-    const handleGeneratePdf = () => {
-        const doc = new jsPDF({
-            format: "a4",
-            unit: "in",
-        });
-        doc.html(reportTemplateRef.current, {
-            callback: function (doc) {
-                doc.save("report.pdf");
-            },
-            x: 0,
-            y: 0,
-            width: 8.27, // A4 width in inches
-            windowWidth: reportTemplateRef.current.scrollWidth,
-            html2canvas: {
-                scale: 0.5, // Adjust the scale to fit the content
-                useCORS: true, // Enable cross-origin resource sharing
-            },
-        });
-    }
     const targetRef = useRef();
 
     return (
